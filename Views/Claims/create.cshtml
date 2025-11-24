@@ -1,0 +1,74 @@
+﻿@model Contract_Monthly_Claim_System.Models.Claim
+
+@{
+    ViewData["Title"] = "Submit New Claim";
+}
+
+<h1>Submit New Claim</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="LecturerName" class="form-label"></label>
+                <input asp-for="LecturerName" class="form-control" readonly />
+                <small class="text-muted">Logged in as: @User.Identity?.Name</small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ClaimPeriod" class="form-label">Claim Period (Month/Year)</label>
+                <input asp-for="ClaimPeriod" type="month" class="form-control" />
+                <span asp-validation-for="ClaimPeriod" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HoursWorked" class="form-label"></label>
+                <input asp-for="HoursWorked" class="form-control" id="HoursWorked" />
+                <span asp-validation-for="HoursWorked" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HourlyRate" class="form-label"></label>
+                <input asp-for="HourlyRate" class="form-control" id="HourlyRate" />
+                <span asp-validation-for="HourlyRate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Total Amount (Auto-Calculated)</label>
+                <div class="input-group">
+                    <span class="input-group-text">R</span>
+                    <input type="text" class="form-control" id="TotalAmount" readonly value="0.00" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Notes" class="form-label"></label>
+                <textarea asp-for="Notes" class="form-control"></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Create Claim</button>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            function calculateTotal() {
+                var hours = parseFloat($("#HoursWorked").val()) || 0;
+                var rate = parseFloat($("#HourlyRate").val()) || 0;
+                var total = hours * rate;
+                $("#TotalAmount").val(total.toFixed(2));
+            }
+            $("#HoursWorked, #HourlyRate").on("input", calculateTotal);
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center hero-section">
+    <h1 class="display-4">Welcome to CMCS</h1>
+    <p class="lead fs-4">The centralized Contract Monthly Claim System.</p>
+    <p>Efficiently manage, track, and approve academic claims in one secure portal.</p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-light btn-lg mt-3 fw-bold" asp-area="Identity" asp-page="/Account/Login">Get Started</a>
+    }
+</div>
+
+<div class="row mt-5 g-4">
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <h2 class="text-primary mb-3"><i class="bi bi-person-badge"></i> For Lecturers</h2>
+                <p class="card-text text-muted">
+                    **Quickly and accurately log your monthly teaching hours.** The system verifies your contract allocations and provides real-time claim status tracking.
+                </p>
+                <a asp-controller="Claims" asp-action="Create" class="btn btn-outline-primary mt-2">Submit Claim</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <h2 class="text-success mb-3"><i class="bi bi-check-circle"></i> For Coordinators</h2>
+                <p class="card-text text-muted">
+                    **Streamline the claim approval process with guided workflows.** Utilize integrated reporting tools to monitor budget spend and track outstanding verifications.
+                </p>
+                <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-success mt-2">Review Claims</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 text-center p-4">
+            <div class="card-body">
+                <h2 class="text-warning mb-3"><i class="bi bi-file-earmark-bar-graph"></i> For HR</h2>
+                <p class="card-text text-muted">
+                    **Export audited, payroll-ready data reports instantly.** Maintain centralized, secure records for all academic contractors and simplify compliance documentation.
+                </p>
+                <a asp-controller="HR" asp-action="Index" class="btn btn-outline-warning mt-2">HR Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>

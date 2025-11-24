@@ -1,0 +1,97 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Contract_Monthly_Claim_System
+build_property.RootNamespace = Contract_Monthly_Claim_System
+build_property.ProjectDir = C:\Users\RC_Student_Lab\Desktop\2.0\Refilwe Phore St10458818\Contract_Monthly_Claim_System\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\RC_Student_Lab\Desktop\2.0\Refilwe Phore St10458818\Contract_Monthly_Claim_System
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Admin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Claims/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXGNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Claims/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Claims/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/HR/EditLecturer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRWRpdExlY3R1cmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/HR/GenerateReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcR2VuZXJhdGVSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/HR/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/HR/Lecturers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcTGVjdHVyZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RC_Student_Lab/Desktop/2.0/Refilwe Phore St10458818/Contract_Monthly_Claim_System/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jeycrpczkh

@@ -1,0 +1,45 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+    @{
+    ViewData["Title"] = "Manage Lecturers";
+    }
+
+    <div class="container mt-4">
+        <h1>Manage Lecturer Data</h1>
+        <p>Update contact details and personal information.</p>
+
+        @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+        <table class="table table-hover mt-3">
+            <thead class="table-light">
+                <tr>
+                    <th>Email / Username</th>
+                    <th>Phone Number</th>
+                    <th>User ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@(user.PhoneNumber ?? "Not Provided")</td>
+                    <td><small class="text-muted">@user.Id</small></td>
+                    <td>
+                        <a asp-action="EditLecturer" asp-route-id="@user.Id" class="btn btn-sm btn-primary">
+                            Edit Details
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <div class="mt-3">
+            <a asp-action="Index" class="btn btn-secondary">Back to HR Dashboard</a>
+        </div>
+    </div>

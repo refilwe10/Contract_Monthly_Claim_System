@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "HR Dashboard";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4">HR Management Dashboard</h1>
+    <p class="lead">Manage lecturer data and process payments.</p>
+    <hr />
+
+    <div class="row justify-content-center g-4">
+        <div class="col-md-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-cash-coin"></i> Payment Processing</h5>
+                    <p class="card-text">Generate invoices for approved claims ready for payment.</p>
+                    <a asp-action="GenerateReport" class="btn btn-success w-100 mt-3">
+                        Generate Invoice
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-people"></i> Lecturer Data</h5>
+                    <p class="card-text">Update lecturer contact details and personal info.</p>
+                    <a asp-action="Lecturers" class="btn btn-primary w-100 mt-3">
+                        Manage Lecturers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

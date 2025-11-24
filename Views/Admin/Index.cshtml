@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Contract_Monthly_Claim_System.Models.Claim>
+
+    @{
+    ViewData["Title"] = "Pending Claims for Approval";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <p>Review and process all pending contract claims.</p>
+
+    @if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+    @if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer</th>
+                <th>Period</th>
+                <th>Hours</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ClaimId</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimPeriod.ToString("MMMM yyyy")</td>
+                <td>@claim.HoursWorked</td>
+                <td>@(claim.Amount.ToString("C"))</td>
+                <td>
+                    <span class="badge bg-warning">@claim.Status</span>
+                </td>
+                <td>
+                    <a asp-controller="Claims" asp-action="Details" asp-route-id="@claim.ClaimId" class="btn btn-sm btn-info me-2">View</a>
+
+                    <form asp-controller="Admin" asp-action="Approve" asp-route-id="@claim.ClaimId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Are you sure you want to approve Claim ID @claim.ClaimId?');">Approve</button>
+                    </form>
+
+                    <form asp-controller="Admin" asp-action="Reject" asp-route-id="@claim.ClaimId" method="post" style="display:inline;" onsubmit="return promptForReason(this, @claim.ClaimId);">
+                        <input type="hidden" name="reason" id="reason_@claim.ClaimId" value="" />
+                        <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    @section Scripts {
+        <script>
+            function promptForReason(form, claimId) {
+                var reason = prompt("Enter the reason for rejecting Claim ID " + claimId + ":");
+                if (reason === null || reason.trim() === "") {
+                    alert("Rejection cancelled or reason is required.");
+                    return false;
+                }
+                document.getElementById("reason_" + claimId).value = reason;
+                return true;
+            }
+        </script>
+    }

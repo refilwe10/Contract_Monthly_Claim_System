@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Contract_Monthly_Claim_System.Models.Claim>
+
+    @{
+    ViewData["Title"] = "All Claims";
+    }
+
+    <h1>All Claims History</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Claim</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ClaimPeriod)</th>
+                <th>@Html.DisplayNameFor(model => model.HoursWorked)</th>
+                <th>@Html.DisplayNameFor(model => model.HourlyRate)</th>
+                <th>Amount Due</th>
+                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ClaimPeriod.ToString("MMMM yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoursWorked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HourlyRate)
+                </td>
+                <td>
+                    @(item.Amount.ToString("C"))
+                </td>
+                <td>
+                    @switch (item.Status)
+                    {
+                        case Contract_Monthly_Claim_System.Models.ClaimStatus.Draft:
+                    <span class="badge bg-secondary">@item.Status</span>
+                            break;
+                        case Contract_Monthly_Claim_System.Models.ClaimStatus.Pending:
+                    <span class="badge bg-warning">@item.Status</span>
+                            break;
+                        case Contract_Monthly_Claim_System.Models.ClaimStatus.Approved:
+                        case Contract_Monthly_Claim_System.Models.ClaimStatus.Settled:
+                    <span class="badge bg-success">@item.Status</span>
+                            break;
+                        case Contract_Monthly_Claim_System.Models.ClaimStatus.Rejected:
+                    <span class="badge bg-danger">@item.Status</span>
+                            break;
+                        default:
+                    <span class="badge bg-info">@item.Status</span>
+                            break;
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ClaimId" class="btn btn-sm btn-outline-info">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>

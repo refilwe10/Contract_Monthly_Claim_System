@@ -1,0 +1,127 @@
+@model Contract_Monthly_Claim_System.Models.Claim
+
+@{
+    ViewData["Title"] = "Claim Details";
+}
+
+<h1>Claim Details</h1>
+
+<div>
+    <h4>Claim #@Model.ClaimId - @Model.LecturerName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.LecturerName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.LecturerName)
+        </dd>
+        <dt class="col-sm-3">
+            Claim Period
+        </dt>
+        <dd class="col-sm-9">
+            @Model.ClaimPeriod.ToString("MMMM yyyy")
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.HoursWorked)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.HoursWorked)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </dt>
+        <dd class="col-sm-9">
+            @Model.HourlyRate.ToString("C")
+        </dd>
+        <dt class="col-sm-3">
+            Total Amount
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Amount.ToString("C")
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-9">
+            <span class="badge bg-primary">@Html.DisplayFor(model => model.Status)</span>
+        </dd>
+        <dt class="col-sm-3">
+            Notes
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+
+<hr />
+<h3>Attachments (@Model.Attachments.Count())</h3>
+
+@if (TempData["Success"] != null)
+{
+<div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+<div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Type</th>
+            <th>Size (KB)</th>
+            <th>Uploaded By</th>
+            <th>Uploaded At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attachment in Model.Attachments)
+        {
+        <tr>
+            <td>@attachment.FileName</td>
+            <td>@attachment.FileType</td>
+            <td>@(attachment.FileSize / 1024)</td>
+            <td>@attachment.UploadedBy</td>
+            <td>@attachment.UploadedAt.ToShortDateString()</td>
+            <td>
+                <a href="@Url.Content(attachment.FilePath)" target="_blank" class="btn btn-sm btn-outline-primary">Download</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        @if (Model.Status == Contract_Monthly_Claim_System.Models.ClaimStatus.Draft)
+        {
+        <h4>Upload New Attachment</h4>
+        <form asp-action="UploadAttachment" asp-route-claimId="@Model.ClaimId" method="post" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+                <input type="file" name="file" class="form-control" required />
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+        }
+        else
+        {
+        <p class="alert alert-info">Attachments cannot be uploaded after the claim leaves the Draft status.</p>
+        }
+    </div>
+</div>
+
+<div class="mt-4">
+    @if (Model.Status == Contract_Monthly_Claim_System.Models.ClaimStatus.Draft)
+    {
+    <form asp-action="Submit" asp-route-id="@Model.ClaimId" method="post" style="display:inline;">
+        <button type="submit" class="btn btn-warning me-2" onclick="return confirm('Ready to submit this claim for review? You cannot make changes after submission.');">
+            Submit for Review
+        </button>
+    </form>
+    }
+    <a asp-action="Index" class="btn btn-secondary">Back to Claims</a>
+</div>
